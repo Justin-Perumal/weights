@@ -1,23 +1,38 @@
 import sys
+<<<<<<< HEAD:bmi.py
 
 
 
 def ounces2pounds(x):
     return x/16
 
+=======
+>>>>>>> dev:bmi/bmi.py
 def stones2pounds(x):
     return x*14
+    
+def ounces2pounds(x):
+    return x/16
+    
+def inches2feet(x):
+    return x/12
 
 
 def weight2kg(stones,pounds,ounces):
-    return (stones2pounds(stones)+pounds+ounces2pounds(ounces))/2.2
+    kg = (stones2pounds(stones)+pounds+ounces2pounds(ounces))/2.2
+    return kg
 
 def height2metres(feet,inches):
+<<<<<<< HEAD:bmi.py
     return feet/3.28
+=======
+    metre = (feet+inches2feet(inches))/3.28
+    return metre
+>>>>>>> dev:bmi/bmi.py
 
 
 def categorise(kg,metre):
-    bmi=kg*kg/metre
+    bmi=kg/(metre*metre)
     if bmi<19:
         cat='A'
     elif bmi<=26:
