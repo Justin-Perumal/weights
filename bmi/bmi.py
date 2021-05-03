@@ -1,21 +1,25 @@
 import sys
-
-def ounces2pounds(x):
-    return x*16
-
 def stones2pounds(x):
     return x*14
+    
+def ounces2pounds(x):
+    return x/16
+    
+def inches2feet(x):
+    return x/12
 
 
 def weight2kg(stones,pounds,ounces):
-    return (stones2pounds(stones)+pounds+ounces2pounds(ounces))/2.2
+    kg = (stones2pounds(stones)+pounds+ounces2pounds(ounces))/2.2
+    return kg
 
 def height2metres(feet,inches):
-    return feet/3.82
+    metre = (feet+inches2feet(inches))/3.28
+    return metre
 
 
 def categorise(kg,metre):
-    bmi=kg*kg/metre
+    bmi=kg/(metre*metre)
     if bmi<19:
         cat='A'
     elif bmi<=26:
@@ -30,7 +34,7 @@ def get_data(input_file):
     f=open(input_file)
     data=[]
     for line in f:
-        person_id,pounds,stones,ounces,feet,inches=line.split()
+        person_id,stones,pounds,ounces,feet,inches=line.split()
         kg=weight2kg(int(stones),int(pounds),int(ounces))
         m =height2metres(int(feet),int(inches))
         cat=categorise(kg,m)
