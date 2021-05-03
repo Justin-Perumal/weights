@@ -1,8 +1,5 @@
 import sys
 
-def ounces2pounds(x):
-    return x/16
-
 def stones2pounds(x):
     return x*14
     
