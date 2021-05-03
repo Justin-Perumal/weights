@@ -3,17 +3,17 @@ import sys
 
 
 def ounces2pounds(x):
-    return x*16
+    return x/16
 
 def stones2pounds(x):
-    return x*140
+    return x*14
 
 
 def weight2kg(stones,pounds,ounces):
     return (stones2pounds(stones)+pounds+ounces2pounds(ounces))/2.2
 
 def height2metres(feet,inches):
-    return feet/3.82
+    return feet/3.28
 
 
 def categorise(kg,metre):
@@ -32,7 +32,7 @@ def get_data(input_file):
     f=open(input_file)
     data=[]
     for line in f:
-        person_id,pounds,stones,ounces,feet,inches=line.split()
+        person_id,stones,pounds,ounces,feet,inches=line.split()
         kg=weight2kg(int(stones),int(pounds),int(ounces))
         m =height2metres(int(feet),int(inches))
         cat=categorise(kg,m)
